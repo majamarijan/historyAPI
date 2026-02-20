@@ -1,0 +1,45 @@
+* {
+ margin:0;
+ padding:0;
+ box-sizing: border-box;
+}
+
+html {
+ font-family: 'Inter', 'Roboto', 'Ubuntu', sans-serif;
+}
+
+header {
+ padding-inline: 4px;
+ padding-block: 8px;
+}
+
+header ul {
+ display: flex;
+ flex-flow: wrap;
+ flex-direction: row;
+}
+
+ul li {
+ list-style: none;
+ padding:0;
+ border: 1px solid #BFBFBF;
+ display: flex;
+}
+
+a {
+ text-decoration: none;
+ display: inline-block;
+ padding: 2px 6px;
+}
+
+a:hover {
+ color: purple;
+ font-weight: bold;
+ cursor: pointer;
+}
+
+main {
+ min-height: 80vh;
+ padding: 8px 4px;
+ background: yellow;
+}
