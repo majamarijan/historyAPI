@@ -23,17 +23,22 @@ ul li {
  list-style: none;
  padding:0;
  border: 1px solid #BFBFBF;
- display: flex;
 }
 
 a {
  text-decoration: none;
- display: inline-block;
- padding: 2px 6px;
+ display: flex;
+ padding: 4px 8px;
+ position: relative;
+ width: 100px;
+ align-items:center;
+ justify-content: center;
+ background:teal;
+ color: white;
 }
 
 a:hover {
- color: purple;
+ color: lightblue;
  font-weight: bold;
  cursor: pointer;
 }
@@ -42,4 +47,10 @@ main {
  min-height: 80vh;
  padding: 8px 4px;
  background: yellow;
+}
+
+.go_home {
+ border: 1px solid lightgray;
+ border-radius: 8px;
+ padding: 4px 8px;
 }
