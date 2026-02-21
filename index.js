@@ -3,14 +3,25 @@ const app = express();
 const path = require('path');
 
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname)));
-
-app.get('/',(req,res,next)=> {
-	res.sendFile(path.join(__dirname, 'index.html'));
+app.use((req, res, next) => {
+  res.setHeader("Content-Security-Policy", "default-src 'self'");
+  next();
 });
 
-app.get('*', (req,res)=> {
-	res.sendFile(path.join(__dirname,'404.html'));
-})
+app.get('/api/posts',async (req,res)=> {
+	try{
+		const data= await fetch('https://dummyjson.com/posts?limit=10');
+		const json = await data.json();
+		res.json(json);
+	}catch(err) {
+		throw new Error('Something went wrong!');
+	}
+});
+
+app.get(/.*/,(req,res)=> {
+	res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 app.listen('4000', ()=> console.log('Server is on port 4000...'));
